@@ -1,20 +1,16 @@
 # goproxy
-[![Build Status](https://travis-ci.org/ejunjsh/goproxy.svg?branch=master)](https://travis-ci.org/ejunjsh/goproxy)
 
-[![baby-gopher](https://raw.githubusercontent.com/drnic/babygopher-site/gh-pages/images/babygopher-badge.png)](http://www.babygopher.org)
+supports http, socks4/5 at the same time.
 
-supports http,socks4/5 at the same time.
+## Install
 
-## install
+    go install github.com/junlapong/goproxy@latest
 
-    go get github.com/ejunjsh/goproxy
-
-
-## usage
+## Usage
 
     usage: goproxy <listen address>
     
-## example
+## Example
 
 if you run below command in your local or remote machine
 
@@ -24,9 +20,16 @@ then you can set your proxy address `<local or remote ip>:8090` on your browser 
 
 [![](http://idiotsky.top/images3/goproxy.png)](http://idiotsky.top/images3/goproxy.png)
 
-## docker
+## Docker
 
-    sudo docker run --net host  sjj050121014/goproxy:1.0 <listen address>
+```sh
+# build
+docker build -t docker.io/goproxy:latest .
 
+# run
+docker run --rm -ti --name goproxy -p 8088:8090 goproxy :8090
+# or
+docker run --rm -ti --name goproxy --net host goproxy :8088
+```
 
 😄 enjoy

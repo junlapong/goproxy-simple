@@ -1,10 +1,17 @@
-FROM golang 
+FROM golang:1.20 as builder
 
-MAINTAINER ejunjsh <sjj050121014@163.com>
+ENV GOOS=linux
+ENV GOARCH=amd64
 
-WORKDIR /root
+WORKDIR /app
+ADD . .
 
-RUN go get github.com/ejunjsh/goproxy
+RUN go mod tidy
+RUN go build -o bin/goproxy
 
-ENTRYPOINT [ "goproxy"]
+FROM busybox
 
+WORKDIR /app
+COPY --from=builder /app/bin/goproxy /app/goproxy
+
+ENTRYPOINT [ "/app/goproxy"]

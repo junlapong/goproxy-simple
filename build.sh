@@ -1,4 +1,6 @@
 #!/bin/bash
 
+docker build -t docker.io/goproxy:latest .
 
-sudo docker build -t sjj050121014/goproxy:1.0 .
+# docker run --rm -ti --name goproxy -p 8088:8088 goproxy :8088
+# docker run --rm -ti --name goproxy --net host goproxy :8088
