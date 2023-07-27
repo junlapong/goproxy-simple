@@ -1,3 +1,3 @@
-module github.com/junlapong/goproxy
+module github.com/junlapong/goproxy-simple
 
 go 1.20
